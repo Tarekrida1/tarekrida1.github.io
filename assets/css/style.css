@@ -1517,8 +1517,8 @@
   .type_container {
     width: 300px;
   }
-  .text1,
-  .text2 {
+  .job_title,
+  .type_icon {
     font-size: 28px;
   }
 }
@@ -1531,8 +1531,8 @@
   .type_container {
     width: 250px;
   }
-  .text1,
-  .text2 {
+  .job_title,
+  .type_icon {
     font-size: 24px;
   }
 }
