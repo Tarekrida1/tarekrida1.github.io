@@ -440,20 +440,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ViewComponent = class ViewComponent {
-    constructor(route, projectSer) {
+    constructor(route, projectSer, router) {
         this.route = route;
         this.projectSer = projectSer;
+        this.router = router;
     }
     ngOnInit() {
         this.projectId = this.route.snapshot.paramMap.get('id');
         this.project_item = this.projectSer.projects[this.projectId];
-        console.log(this.projectId);
-        console.log(this.project_item);
+        // console.log(this.projectId);
+        // console.log(this.project_item);
+        if (this.project_item === undefined) {
+            this.router.navigateByUrl('');
+        }
     }
 };
 ViewComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: src_app_services_projects_service__WEBPACK_IMPORTED_MODULE_3__["ProjectsService"] }
+    { type: src_app_services_projects_service__WEBPACK_IMPORTED_MODULE_3__["ProjectsService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 ViewComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -489,7 +494,7 @@ let ProjectsService = class ProjectsService {
                 pageparm: "menatech",
                 description: "there is no description now!",
                 minImg: "../../../assets/imgs/portfolio/menatech.jpg",
-                fullImg: "../../../assets/imgs/portfolio/menatech_full.jpg",
+                fullImg: "../../../assets/imgs/portfolio/menatech_full.jpg.png",
                 dateFrom: "25 sep 2018",
                 dateTo: "present"
             },
@@ -498,7 +503,7 @@ let ProjectsService = class ProjectsService {
                 pageparm: "menatech2",
                 description: "there is no description now!",
                 minImg: "../../../assets/imgs/portfolio/menatech.jpg",
-                fullImg: "../../../assets/imgs/portfolio/menatech.jpg",
+                fullImg: "../../../assets/imgs/portfolio/menatech_full.jpg.png",
                 dateFrom: "25 sep 2018",
                 dateTo: "present"
             }
